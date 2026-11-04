@@ -1,2 +1,2 @@
-flask
-mysqlclient
+flask==3.0.3
+mysqlclient==2.2.4
