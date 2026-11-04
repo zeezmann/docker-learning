@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    depends_on:
+      - redis
+    init: true
+    deploy:
+      replicas: 3
+
+  redis:
+    build: ./redis
+    volumes:
+      - redis-data:/data
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "5000:80"
+    depends_on:
+      - web
+
+volumes:
+  redis-data:
