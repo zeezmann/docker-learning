@@ -12,3 +12,8 @@ services:
 
   redis:
     build: ./redis
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
