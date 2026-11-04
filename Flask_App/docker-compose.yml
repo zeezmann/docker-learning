@@ -5,6 +5,7 @@ services:
       - "5000:5000"
     depends_on:
       - db
+    init: true
 
   db:
     image: mysql:5.7
